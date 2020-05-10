@@ -1,6 +1,7 @@
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, HTML
 from django import forms
+from dal import autocomplete
 
 
 class DateInput(forms.DateInput):
