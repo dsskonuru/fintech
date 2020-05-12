@@ -2,8 +2,13 @@
   <dictionary name="dsskonuru">
     <words>
       <w>amfi</w>
+      <w>cagr</w>
       <w>fintech</w>
       <w>idata</w>
+      <w>idate</w>
+      <w>jdate</w>
+      <w>quandl</w>
+      <w>ydata</w>
     </words>
   </dictionary>
 </component>

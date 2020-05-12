@@ -3,4 +3,14 @@
 {% block content %}
     <h2>Update Nifty-50 DB</h2>
     {% crispy form form.helper %}
+    <br></br>
+    <p{% if message %} class="text-danger"{% endif %}>{{ message }}</p>
+    <p>
+    <table>
+        {% for i in table %}
+            <tr>
+                <td>{{ i }}</td>
+            </tr>
+        {% endfor %}
+    </table></p>
 {% endblock %}

@@ -1,5 +1,42 @@
 {% extends "base_generic.html" %}
 {% block content %}
-    <h1>LOLOLOLOL</h1>
+    <h1>Results</h1>
+    <p>
+    <table>
+        <tr>
+            <td>Fund Name: {{ name }}</td>
+        </tr>
+        <tr>
+            <td>Number of Rolling Returns: {{ len_rr }}</td>
+        </tr>
+        <tr>
+            <td>Time Period: {{ n }}</td>
+        </tr>
+        <tr>
+            <td>Average Returns: {{ avg_rr }}</td>
+        </tr>
+        <tr>
+            <td>Maximum Returns: {{ max_rr }}</td>
+        </tr>
+        <tr>
+            <td>Minimum Returns: {{ min_rr }}</td>
+        </tr>
+        <tr>
+            <td>Chances of Beating Benchmark Returns: {{ cob }}</td>
+        </tr>
+        <tr>
+            <td>Standard Deviation of Returns: {{ std_rr }}</td>
+        </tr>
+        <tr>
+            <td>Alpha: {{ al }}</td>
+        </tr>
+        <tr>
+            <td>Beta: {{ be }}</td>
+        </tr>
+        <tr>
+            <td>Sharpe: {{ sh }}</td>
+        </tr>
+
+    </table></p>
 
 {% endblock %}

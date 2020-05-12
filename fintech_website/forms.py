@@ -11,8 +11,10 @@ class DateInput(forms.DateInput):
 class DataForm(forms.Form):
     code = forms.IntegerField(max_value=148366, min_value=100027)
     name = forms.CharField(max_length=150)
+    time_period = forms.IntegerField(required=False, initial=3)
     from_date = forms.DateField(widget=DateInput)
     to_date = forms.DateField(widget=DateInput)
+    risk_free_rate = forms.DecimalField()
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -20,7 +22,7 @@ class DataForm(forms.Form):
         self.helper = FormHelper
         self.helper.form_method = 'post'
         self.helper.layout = Layout(
-            'code', 'name', 'from_date', 'to_date',
+            'code', 'name', 'from_date', 'to_date', 'risk_free_rate', 'time_period',
             HTML("<br></br>"),
             Submit('submit', 'Get Results', css_class='btn_success')
         )
