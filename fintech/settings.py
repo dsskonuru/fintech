@@ -24,7 +24,7 @@ SECRET_KEY = 'rgvv$w-o6a-c+$5!!rt3_unq*=*%z9%vk(7j+blddy3ge%y6(o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dsskonuru.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 # Application definition
 
