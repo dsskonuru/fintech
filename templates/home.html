@@ -1,6 +1,74 @@
 {% extends "base_generic.html" %}
-{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+{% endblock %}
+
+
 {% block content %}
-    <h1>Fintech Homepage</h1>
-    {% crispy form form.helper %}
+    <div>
+        <h1>Fintech Homepage</h1>
+        <!% crispy form form.helper %>
+
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.non_field_errors }}
+                <div class="fieldWrapper">
+                    {{ form.code.errors }}
+                    <label for="{{ form.code.id_for_label }}">Code:</label>
+                    {{ form.code }}
+                </div>
+                <!--<div class="fieldWrapper">
+                    {{ form.name.errors }}
+                    <label for="{{ form.name.id_for_label }}">Name:</label>
+                    {{ form.name }}
+                </div>-->
+                <div class="fieldWrapper">
+                    {{ form.time_period.errors }}
+                    <label for="{{ form.time_period.id_for_label }}">Time Period:</label>
+                    {{ form.time_period }}
+                </div>
+                <div class="fieldWrapper">
+                    {{ form.from_date.errors }}
+                    <label for="{{ form.from_date.id_for_label }}">From Date:</label>
+                    {{ form.from_date }}
+                </div>
+                <div class="fieldWrapper">
+                    {{ form.to_date.errors }}
+                    <label for="{{ form.to_date.id_for_label }}">From Date:</label>
+                    {{ form.to_date }}
+                </div>
+                <div class="fieldWrapper">
+                    {{ form.risk_free_rate.errors }}
+                    <label for="{{ form.risk_free_rate.id_for_label }}">Risk Free Rate:</label>
+                    {{ form.risk_free_rate }}
+                </div>
+            </table>
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+
+    <script>
+
+        $(function () {
+            $("#places").autocomplete({
+                source: "/api/get_places/",
+                select: function (event, ui) { //item selected
+                    AutoCompleteSelectHandler(event, ui)
+                },
+                minLength: 2,
+            });
+        });
+
+        function AutoCompleteSelectHandler(event, ui) {
+            var selectedObj = ui.item;
+        }
+
+    </script>
 {% endblock %}

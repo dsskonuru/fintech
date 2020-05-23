@@ -4,39 +4,96 @@
     <p>
     <table>
         <tr>
-            <td>Fund Name: {{ name }}</td>
+            <td><b>{{ name }}</b></td>
         </tr>
         <tr>
-            <td>Number of Rolling Returns: {{ len_rr }}</td>
-        </tr>
-        <tr>
-            <td>Time Period: {{ n }}</td>
-        </tr>
-        <tr>
-            <td>Average Returns: {{ avg_rr }}</td>
-        </tr>
-        <tr>
-            <td>Maximum Returns: {{ max_rr }}</td>
-        </tr>
-        <tr>
-            <td>Minimum Returns: {{ min_rr }}</td>
-        </tr>
-        <tr>
-            <td>Chances of Beating Benchmark Returns: {{ cob }}</td>
-        </tr>
-        <tr>
-            <td>Standard Deviation of Returns: {{ std_rr }}</td>
-        </tr>
-        <tr>
-            <td>Alpha: {{ al }}</td>
-        </tr>
-        <tr>
-            <td>Beta: {{ be }}</td>
-        </tr>
-        <tr>
-            <td>Sharpe: {{ sh }}</td>
+            <td>Time Period: {{ period }} years</td>
         </tr>
 
-    </table></p>
 
+        <tr>
+            <td><b>Yearly Returns</b></td>
+        </tr>
+        <tr>
+            <td>Average: {{ results.year.average }}</td>
+        </tr>
+        <tr>
+            <td>Maximum: {{ results.year.maximum }}</td>
+        </tr>
+        <tr>
+            <td>Minimum: {{ results.year.minimum }}</td>
+        </tr>
+        <tr>
+            <td>Standard Deviation: {{ results.year.std }}</td>
+        </tr>
+        <tr>
+            <td>Alpha: {{ results.year.alpha }}</td>
+        </tr>
+        <tr>
+            <td>Beta: {{ results.year.beta }}</td>
+        </tr>
+
+
+        <tr>
+            <td><b>Monthly Returns</b></td>
+        </tr>
+        <tr>
+            <td>Average: {{ results.month.average }}</td>
+        </tr>
+        <tr>
+            <td>Maximum: {{ results.month.maximum }}</td>
+        </tr>
+        <tr>
+            <td>Minimum: {{ results.month.minimum }}</td>
+        </tr>
+        <tr>
+            <td>Standard Deviation: {{ results.month.std }}</td>
+        </tr>
+        <tr>
+            <td>Alpha: {{ results.month.alpha }}</td>
+        </tr>
+        <tr>
+            <td>Beta: {{ results.month.beta }}</td>
+        </tr>
+
+        <tr>
+            <td>Upside Capture Ratio: {{ results.month.ucr }}</td>
+        </tr>
+        <tr>
+            <td>Downside Capture Ratio: {{ results.month.dcr }}</td>
+        </tr>
+
+
+        <tr>
+            <td><b>Rolling Returns</b></td>
+        </tr>
+        <tr>
+            <td>Number of Rolling Returns: {{ results.rolling.length }}</td>
+        </tr>
+        <tr>
+            <td>Average: {{ results.rolling.average }}</td>
+        </tr>
+        <tr>
+            <td>Maximum: {{ results.rolling.maximum }}</td>
+        </tr>
+        <tr>
+            <td>Minimum: {{ results.rolling.minimum }}</td>
+        </tr>
+        <tr>
+            <td>Standard Deviation: {{ results.rolling.std }}</td>
+        </tr>
+        <tr>
+            <td>Alpha: {{ results.rolling.alpha }}</td>
+        </tr>
+        <tr>
+            <td>Beta: {{ results.rolling.beta }}</td>
+        </tr>
+        <tr>
+            <td>Chances of Beating Benchmark: {{ results.rolling.cob }}</td>
+        </tr>
+        <tr>
+            <td>Sharpe: {{ results.rolling.sharpe }}</td>
+        </tr>
+
+    </table>
 {% endblock %}
