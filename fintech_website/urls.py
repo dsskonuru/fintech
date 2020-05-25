@@ -19,5 +19,4 @@ from fintech_website import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('nifty_update/', views.nifty_update, name='nifty_update'),
 ]

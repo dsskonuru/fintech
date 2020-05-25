@@ -32,6 +32,9 @@
         <tr>
             <td>Beta: {{ results.year.beta }}</td>
         </tr>
+        <tr>
+            <td>R Square: {{ results.year.r_2 }}</td>
+        </tr>
 
 
         <tr>
@@ -55,7 +58,9 @@
         <tr>
             <td>Beta: {{ results.month.beta }}</td>
         </tr>
-
+        <tr>
+            <td>R Square: {{ results.month.r_2 }}</td>
+        </tr>
         <tr>
             <td>Upside Capture Ratio: {{ results.month.ucr }}</td>
         </tr>
@@ -65,7 +70,7 @@
 
 
         <tr>
-            <td><b>Rolling Returns</b></td>
+            <td><b>Total Rolling Returns</b></td>
         </tr>
         <tr>
             <td>Number of Rolling Returns: {{ results.rolling.length }}</td>
@@ -89,10 +94,48 @@
             <td>Beta: {{ results.rolling.beta }}</td>
         </tr>
         <tr>
+            <td>R Square: {{ results.rolling.r_2 }}</td>
+        </tr>
+        <tr>
             <td>Chances of Beating Benchmark: {{ results.rolling.cob }}</td>
         </tr>
         <tr>
             <td>Sharpe: {{ results.rolling.sharpe }}</td>
+        </tr>
+
+
+        <tr>
+            <td><b>Rolling Returns for n Years</b></td>
+        </tr>
+        <tr>
+            <td>Number of Rolling Returns: {{ results.n_rolling.length }}</td>
+        </tr>
+        <tr>
+            <td>Average: {{ results.n_rolling.average }}</td>
+        </tr>
+        <tr>
+            <td>Maximum: {{ results.n_rolling.maximum }}</td>
+        </tr>
+        <tr>
+            <td>Minimum: {{ results.n_rolling.minimum }}</td>
+        </tr>
+        <tr>
+            <td>Standard Deviation: {{ results.n_rolling.std }}</td>
+        </tr>
+        <tr>
+            <td>Alpha: {{ results.n_rolling.alpha }}</td>
+        </tr>
+        <tr>
+            <td>Beta: {{ results.n_rolling.beta }}</td>
+        </tr>
+        <tr>
+            <td>R Square: {{ results.n_rolling.r_2 }}</td>
+        </tr>
+        <tr>
+            <td>Chances of Beating Benchmark: {{ results.n_rolling.cob }}</td>
+        </tr>
+        <tr>
+            <td>Sharpe: {{ results.n_rolling.sharpe }}</td>
         </tr>
 
     </table>
