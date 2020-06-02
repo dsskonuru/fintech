@@ -49,15 +49,16 @@ def returns(df, bm, rfr, to_date, n, monthly=True):
     pidx = results2.index[results2 >= 0].tolist()
     nidx = results2.index[results2 < 0].tolist()
 
-    avg_r = ((df.iloc[-1][0] / df.iloc[0][0]) ** (1 / n) - 1) * 100
+    df_avg = ((df.iloc[-1][0] / df.iloc[0][0]) ** (1 / n) - 1) * 100
+    bm_avg = ((bm.iloc[-1][0] / bm.iloc[0][0]) ** (1 / n) - 1) * 100
     std_r = np.sqrt(12 * (df_flags[2] ** 2))
     min_r = df_flags[3]
     max_r = df_flags[7]
     r_square = r_2(df, bm, n)
     be = beta(df, bm, to_date)
-    al = alpha(rfr, be, df_flags, bm_flags)
+    al = alpha_r(rfr, be, df_avg, bm_avg)
 
-    results = {'average': round(avg_r, 3), 'std': round(std_r, 3),
+    results = {'average': round(df_avg, 3), 'std': round(std_r, 3),
                'minimum': round(min_r, 3), 'maximum': round(max_r, 3),
                'alpha': round(al, 3), 'beta': round(be, 3), 'r_2': round(r_square, 3)}
 
@@ -135,10 +136,17 @@ def beta(df, bm, to_date):
 
 
 def alpha(rfr, bet, df_flags, bm_flags):
-    # rfr India 3M Bond Yield 
+    # rfr India 3M Bond Yield
     # df_flags[1]  year to date returns
     # bm_flags[1]  year to date returns at market
-    return df_flags[1] - rfr - (bet * (bm_flags[1] - rfr))
+    return df_flags[1] - (rfr + (bet * (bm_flags[1] - rfr)))
+
+
+def alpha_r(rfr, bet, df_avg, bm_avg):
+    # rfr India 3M Bond Yield
+    # df_flags[1]  year to date returns
+    # bm_flags[1]  year to date returns at market
+    return df_avg - (rfr + (bet * (bm_avg - rfr)))
 
 
 def sharpe(rfr, df_flags):
